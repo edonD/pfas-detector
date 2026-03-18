@@ -106,6 +106,7 @@
 | run-29 | 1.000 | Rapid screening: BW=100Hz (10ms), paddle, SiN | 4/4 | 5+95 | 5.0 | 0.002 | 10ms real-time measurement! LOD=0.002 (2000x below EPA). Enables rapid field screening. |
 | run-30 | 1.000 | PADDLE + MIP (K=500): ultimate combination | 4/4 | 5+95 | 5.0 | 0.0000588 | ULTIMATE RECORD: LOD=0.0000588 ng/L (68,000x below EPA). Paddle + MIP = near fundamental limit. |
 | run-31 | 1.000 | Extreme paddle: stem 3um, f0=41MHz, K=150 | 4/4 | 3+57 | 3.0 | 0.000137 | f0=41MHz(!), S=678k Hz/pg. 3um stem pushes frequency to practical limit. 29,000x below EPA. |
+| run-32 | 1.000 | FINAL VERIFICATION: optimal paddle reproduced 3rd time | 4/4 | 5+95 | 5.0 | 0.000187 | DE converges to same global optimum for 3rd time. Design is definitive. |
 
 ---
 
