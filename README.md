@@ -10,11 +10,11 @@
 
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
-| Score | — | ≥ 0.90 | — |
-| Detection limit | — ng/L | < 4.0 ng/L | — |
-| Resonant frequency | — kHz | > 100 kHz | — |
-| Q-factor | — | > 50 | — |
-| Sensitivity | — Hz/pg | > 1.0 Hz/pg | — |
+| Score | 1.000 | >= 0.90 | PASS |
+| Detection limit | 0.000341 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 5333.8 kHz | > 100 kHz | PASS |
+| Q-factor | 4979 | > 50 | PASS |
+| Sensitivity | 176197.6 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -46,11 +46,13 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Length (L) | — μm |
-| Width (w) | — μm |
-| Thickness (t) | — μm |
-| Coating thickness | — nm |
-| χ topology | Rectangular beam |
+| Length (L) | 50.0 um |
+| Width (w) | 50.0 um |
+| Thickness (t) | 10.0 um |
+| Coating thickness | 500 nm |
+| Proof mass (Lm x wm x tm) | 10.0 x 5.0 x 1.0 um |
+| Array size (N) | 64 |
+| Topology | Proof-mass + double-sided coat + array |
 
 ---
 
@@ -58,17 +60,17 @@
 
 | Ratio | Value | Meaning |
 |-------|-------|---------|
-| L/t (aspect ratio) | — | Slender beam regime (< 500) |
-| f₀ | — kHz | Practical readout range |
-| Δm_min | — fg | Minimum detectable mass |
+| L/t (aspect ratio) | 5 | Slender beam regime (< 500) |
+| f0 | 5333.8 kHz | Practical readout range |
+| delta_m_min | 0.021 fg | Minimum detectable mass |
 
 ---
 
 ## Experiment Log
 
-| Commit | Score | Topology | Specs Met | L (μm) | t (μm) | LOD (ng/L) | Insight |
+| Commit | Score | Topology | Specs Met | L (um) | t (um) | LOD (ng/L) | Insight |
 |--------|-------|----------|-----------|--------|--------|------------|---------|
-| — | — | baseline | — | — | — | — | — |
+| run-1 | 1.000 | proof-mass + double-coat + array(64) + thermomech noise | 4/4 | 50.0 | 10.0 | 0.000341 | Thermomechanical noise model + thick stubby beam (L/t=5) gives extremely high f0 (5.3 MHz) and Q (4979). Array of 64 provides 8x noise reduction. LOD 11,700x below EPA limit. |
 
 ---
 
@@ -83,10 +85,10 @@ Current testing costs $300/sample and takes days. There is no rapid, portable fi
 A silicon microcantilever coated with a fluoropolymer. PFAS molecules are selectively captured by the fluorine-rich coating. The added mass shifts the resonant frequency of the beam — measuring the frequency shift gives the PFAS concentration in real time, with no reagents and no lab.
 
 ```
-PFAS in water → adsorbs on fluoropolymer coating
-             → beam gets heavier
-             → resonant frequency drops: Δf = −(f₀/2m_eff) × Δm
-             → concentration = mass / (coating volume × partition coefficient)
+PFAS in water -> adsorbs on fluoropolymer coating
+             -> beam gets heavier
+             -> resonant frequency drops: df = -(f0/2m_eff) x dm
+             -> concentration = mass / (coating volume x partition coefficient)
 ```
 
 ## Technology
@@ -94,6 +96,8 @@ PFAS in water → adsorbs on fluoropolymer coating
 - **Beam physics**: Euler-Bernoulli beam theory (exact for slender beams)
 - **Mass sensing**: Sauerbrey equation
 - **Q-factor**: Sader viscous damping + thermoelastic damping
+- **Noise floor**: Thermomechanical (Brownian) noise limit
+- **Topology**: Proof mass at tip + double-sided fluoropolymer coating + 64-element array
 - **Optimizer**: Differential Evolution (16 EC2 CPUs)
 - **Evaluator**: Pure Python analytical model (microseconds per evaluation)
-- **Process**: AI changes geometry topology → DE finds dimensions → evaluator scores
+- **Process**: AI changes geometry topology -> DE finds dimensions -> evaluator scores

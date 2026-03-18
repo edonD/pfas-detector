@@ -1,0 +1,77 @@
+======================================================================
+  PFAS Sensor Autoresearch — Evaluator
+======================================================================
+
+  Target: PFAS Resonant Cantilever Sensor
+  Params: 8   Specs: 4
+
+DE: 8 params | pop=64 | maxiter=500 | workers=16
+  gen    0  cost=    -9.98  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=109.2μm  t=8.96μm
+  gen    1  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=74.5μm  t=7.61μm
+  gen    2  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.5μm  t=4.23μm
+  gen    3  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen    4  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen    8  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=9.40μm
+  gen   12  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=51.7μm  t=10.00μm
+  gen   13  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.7μm  t=9.99μm
+  gen   19  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.0μm  t=10.00μm
+  gen   20  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.0μm  t=10.00μm
+  gen   21  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.7μm  t=10.00μm
+  gen   23  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   24  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.6μm  t=10.00μm
+  gen   28  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   33  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=10.00μm
+  gen   40  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=10.00μm
+  gen   42  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   47  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   58  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   60  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   66  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   67  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   69  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   70  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   73  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   76  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   80  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   84  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen   86  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen  100  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen  120  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  gen  140  cost=   -10.00  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=10.00μm
+  Converged at generation 147
+
+══════════════════════════════════════════════════════════════════════
+  EVALUATION REPORT — PFAS Resonant Cantilever Sensor
+══════════════════════════════════════════════════════════════════════
+
+  Score: 1.000 / 1.00    Time: 1.0s
+
+  Spec                     Target     Measured   Unit  Status
+  ────────────────────────────────────────────────────────────
+  detection_limit            <4.0        0.000   ng/L  PASS ✓
+  f0_khz                     >100     5333.837    kHz  PASS ✓
+  Q_factor                    >50     4979.335         PASS ✓
+  sensitivity_hz_pg          >1.0   176197.633  Hz/pg  PASS ✓
+
+  Geometry:
+    L_um           = 5.0000e+01
+    Lm_um          = 1.0000e+01
+    N_array        = 6.3993e+01
+    h_coat_nm      = 5.0000e+02
+    t_um           = 1.0000e+01
+    tm_um          = 1.0000e+00
+    w_um           = 5.0000e+01
+    wm_um          = 5.0000e+00
+
+══════════════════════════════════════════════════════════════════════
+
+Generating visualizations...
+  Saved: plots/sensor_hero.png
+  Saved: plots/cantilever_3d.png
+  Saved: plots/sensitivity_map.png
+  Saved: plots/frequency_response.png
+
+All plots saved to ./plots/
+
+Score: 1.000  (PASS)
+
