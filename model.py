@@ -1,16 +1,17 @@
 """
 model.py — MEMS Cantilever PFAS Sensor Model
 
-Topology: Proof-mass cantilever with double-sided fluoropolymer coating,
-          thermomechanical noise-limited detection, and array averaging.
+Topology: Simple rectangular silicon cantilever with double-sided fluoropolymer
+          coating, thermomechanical noise-limited detection, and array averaging.
+          No proof mass — simplest fabrication.
 
 Physics:
-  Euler-Bernoulli beam + lumped proof mass for resonant frequency.
+  Euler-Bernoulli beam theory for resonant frequency and spring constant.
   Thermomechanical (Brownian) noise floor for minimum detectable frequency shift.
   Sader/viscous + thermoelastic damping for Q-factor in air.
-  Partition coefficient model for PFAS concentration → adsorbed mass.
-  Array averaging: √N improvement in frequency noise.
-  Double-sided coating: 2× mass uptake area.
+  Partition coefficient model for PFAS concentration -> adsorbed mass.
+  Array averaging: sqrt(N) improvement in frequency noise.
+  Double-sided coating: 2x mass uptake area.
 """
 
 import numpy as np
@@ -41,17 +42,14 @@ A_OSC    = 50e-9      # oscillation amplitude [m] (50 nm typical for MEMS)
 
 def run_simulation(params):
     """
-    Proof-mass silicon cantilever with double-sided fluoropolymer coating
-    and array averaging.
+    Simple rectangular silicon cantilever with double-sided fluoropolymer
+    coating and array averaging.
 
     params keys:
-      L_um      : beam length [μm]
-      w_um      : beam width [μm]
-      t_um      : beam thickness [μm]
+      L_um      : beam length [um]
+      w_um      : beam width [um]
+      t_um      : beam thickness [um]
       h_coat_nm : coating thickness [nm]
-      Lm_um     : proof mass length [μm]
-      wm_um     : proof mass width [μm]
-      tm_um     : proof mass thickness [μm]
       N_array   : number of cantilevers in array (rounded to int)
     """
 
@@ -60,9 +58,6 @@ def run_simulation(params):
     w       = params['w_um']      * 1e-6   # [m]
     t       = params['t_um']      * 1e-6   # [m]
     h_coat  = params['h_coat_nm'] * 1e-9   # [m]
-    Lm      = params['Lm_um']     * 1e-6   # proof mass length [m]
-    wm      = params['wm_um']     * 1e-6   # proof mass width [m]
-    tm      = params['tm_um']     * 1e-6   # proof mass thickness [m]
     N_array = max(1, int(round(params['N_array'])))
 
     # ── Sanity checks ──────────────────────────────────────────────────────
@@ -77,25 +72,15 @@ def run_simulation(params):
 
     # ── Beam mechanics ─────────────────────────────────────────────────────
     m_beam = RHO_SI * w * t * L
-    k      = E_SI * w * t**3 / (4 * L**3)   # spring constant
-
-    # ── Proof mass ─────────────────────────────────────────────────────────
-    m_proof = RHO_SI * Lm * wm * tm
+    k      = E_SI * w * t**3 / (4 * L**3)
 
     # ── Double-sided coating ───────────────────────────────────────────────
-    # Coat both top and bottom of beam + top of proof mass
-    A_coat_beam  = 2 * w * L           # double-sided beam coating area
-    A_coat_proof = wm * Lm             # top of proof mass
-    A_coat_total = A_coat_beam + A_coat_proof
+    A_coat = 2 * w * L
+    m_coat = RHO_COAT * A_coat * h_coat
+    m_total = m_beam + m_coat
 
-    m_coat = RHO_COAT * A_coat_total * h_coat
-
-    # ── Total effective mass ───────────────────────────────────────────────
-    # For cantilever with tip mass: m_eff = 0.2357*m_beam + m_proof + m_coat_on_proof
-    # Proof mass is at the tip → contributes fully to effective mass
-    m_coat_beam  = RHO_COAT * A_coat_beam * h_coat
-    m_coat_proof = RHO_COAT * A_coat_proof * h_coat
-    m_eff = 0.2357 * (m_beam + m_coat_beam) + m_proof + m_coat_proof
+    # Effective mass for first mode (Euler-Bernoulli)
+    m_eff = 0.2357 * m_total
 
     if m_eff <= 0:
         return None
@@ -128,25 +113,20 @@ def run_simulation(params):
     Q = 1.0 / (1.0 / Q_air + 1.0 / Q_TED)
 
     # ── Thermomechanical noise-limited frequency resolution ────────────────
-    # δf = (1/A) × √(kB × T × f0 × BW / (π × k × Q))
-    # This is the fundamental Brownian noise floor for a resonant sensor
     delta_f_min = (1.0 / A_OSC) * np.sqrt(KB * T0 * f0 * BW / (np.pi * k * Q))
 
     # ── Minimum detectable mass ────────────────────────────────────────────
     delta_m_min = 2 * m_eff * delta_f_min / f0
 
-    # ── Array averaging: √N noise reduction ────────────────────────────────
+    # ── Array averaging ───────────────────────────────────────────────────
     delta_m_min_array = delta_m_min / np.sqrt(N_array)
 
-    # ── PFAS detection limit ───────────────────────────────────────────────
-    # Total coating volume (double-sided beam + proof mass top)
-    V_coat = A_coat_total * h_coat
+    # ── PFAS detection limit ──────────────────────────────────────────────
+    V_coat = A_coat * h_coat
     V_coat_liters = V_coat * 1e3
-
-    # LOD [ng/L] = Δm_min / (V_coat_L × K_PFAS × 1e-9)
     lod_ng_per_L = delta_m_min_array / (V_coat_liters * K_PFAS * 1e-9)
 
-    # ── Package results ────────────────────────────────────────────────────
+    # ── Package results ───────────────────────────────────────────────────
     return {
         'f0_khz':              f0 / 1e3,
         'Q_factor':            Q,

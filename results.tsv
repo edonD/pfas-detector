@@ -2,3 +2,4 @@ commit	score	topology	specs_met	parameters
 1ff394b	1.000	PFAS Resonant Cantilever Sensor	4/4	L_um=5.000e+01, Lm_um=1.000e+01, N_array=6.399e+01, h_coat_nm=5.000e+02, t_um=1.000e+01, tm_um=1.000e+00, w_um=5.000e+01, wm_um=5.000e+00
 455916d	1.000	PFAS Resonant Cantilever Sensor	4/4	L_um=5.000e+01, Lm_um=1.000e+01, N_array=3.180e+01, h_coat_nm=5.000e+02, t_um=5.000e+00, tm_um=1.000e+00, w_um=5.000e+01, wm_um=5.000e+00
 455916d	1.000	PFAS Resonant Cantilever Sensor	4/4	L_um=5.000e+01, Lm_um=1.000e+01, N_array=3.187e+01, h_coat_nm=2.500e+02, t_um=2.500e+00, tm_um=1.000e+00, w_um=5.000e+01, wm_um=5.000e+00
+910d2aa	1.000	PFAS Resonant Cantilever Sensor	4/4	L_um=5.000e+01, N_array=3.164e+01, h_coat_nm=2.500e+02, t_um=2.500e+00, w_um=5.000e+01
