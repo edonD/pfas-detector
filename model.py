@@ -36,7 +36,7 @@ RHO_COAT = 2100.0     # density of fluoropolymer (Teflon-like) [kg/m³]
 K_PFAS   = 150.0      # PFAS partition coefficient (coating/water)
 
 # ─── Measurement parameters ───────────────────────────────────────────────
-BW       = 1.0        # measurement bandwidth [Hz] (1 s integration)
+BW       = 10.0       # measurement bandwidth [Hz] (100 ms integration — fast field measurement)
 A_OSC    = 20e-9      # oscillation amplitude [m] (20 nm — moderate)
 
 
