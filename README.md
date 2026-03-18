@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.026 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 1288.7 kHz | > 100 kHz | PASS |
-| Q-factor | 822 | > 50 | PASS |
-| Sensitivity | 79531.0 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 0.016 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 1435.6 kHz | > 100 kHz | PASS |
+| Q-factor | 1078 | > 50 | PASS |
+| Sensitivity | 34605.8 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -47,7 +47,7 @@
 | Parameter | Value |
 |-----------|-------|
 | Length (L) | 50.0 um |
-| Width (w) | 100.0 um |
+| Width (w) | 200.0 um |
 | Thickness (t) | 2.50 um |
 | Coating thickness | 250 nm (double-sided) |
 | Array size (N) | 16 |
@@ -63,9 +63,9 @@
 | Ratio | Value | Meaning |
 |-------|-------|---------|
 | L/t (aspect ratio) | 20 | Practical MEMS cantilever |
-| f0 | 1288.7 kHz | Practical readout range |
-| Q | 822 | Air-damped |
-| delta_m_min | 0.026 fg | Minimum detectable mass |
+| f0 | 1435.6 kHz | Practical readout range |
+| Q | 1078 | Air-damped (SiN) |
+| delta_m_min | 0.016 fg | Minimum detectable mass |
 
 ---
 
@@ -90,6 +90,7 @@
 | run-15 | 0.626 | FAIL: ultra-conservative single beam, 5nm, L/t>=100 | 2/4 | 50.0 | 0.5 | 62.4 | Physical limit found: single Si cantilever with 5nm amp and L/t=100 can't meet LOD. |
 | run-16 | 0.968 | ultra-conservative + double-coat + array(64), 5nm, L/t>=100 | 3/4 | 50.0 | 0.5 | 4.35 | Rescued: double coat + 64-array brings LOD from 62 to 4.35. Score=0.968 (>0.90). |
 | run-17 | 1.000 | SiN field-deployable: double-coat, 16-array, 20nm | 4/4 | 50.0 | 2.5 | 0.022 | Best LOD yet! SiN gives Q=1078 (31% > Si). LOD=0.022 ng/L (182x below EPA). |
+| run-18 | 1.000 | SiN wide beam (w=200um), double-coat, 16-array | 4/4 | 50.0 | 2.5 | 0.016 | NEW RECORD LOD=0.016 ng/L (250x below EPA). Wider beam = more coating area. |
 
 ---
 
