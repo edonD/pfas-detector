@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.001 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 9036.2 kHz | > 100 kHz | PASS |
-| Q-factor | 5267 | > 50 | PASS |
-| Sensitivity | 57537.0 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 0.000187 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 24978.4 kHz | > 100 kHz | PASS |
+| Q-factor | 9112 | > 50 | PASS |
+| Sensitivity | 151913.6 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -46,8 +46,8 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Stem length (Ls) | 10.0 um |
-| Paddle length (Lp) | 90.0 um |
+| Stem length (Ls) | 5.0 um |
+| Paddle length (Lp) | 95.0 um |
 | Stem width (ws) | 30.0 um |
 | Paddle width (wp) | 50.0 um |
 | Thickness (t) | 5.0 um |
@@ -65,9 +65,9 @@
 | Ratio | Value | Meaning |
 |-------|-------|---------|
 | L_total/t | 20 | Practical MEMS cantilever |
-| f0 | 9036.2 kHz | High-frequency paddle design |
-| Q | 5267 | Air-damped (SiN, thick beam) |
-| delta_m_min | 0.001 fg | Minimum detectable mass |
+| f0 | 24978.4 kHz | Ultra-high-frequency paddle design |
+| Q | 9112 | Air-damped (SiN, thick beam) |
+| delta_m_min | 0.000187 fg | Minimum detectable mass |
 
 ---
 
@@ -100,6 +100,7 @@
 | run-23 | 1.000 | PADDLE optimized: stem 10um + paddle 90x50um | 4/4 | 10+90 | 5.0 | 0.001 | ABSOLUTE RECORD! LOD=0.001 ng/L (4000x below EPA). f0=9036kHz, Q=5267. Shorter stem = higher f0. |
 | run-24 | 1.000 | PADDLE reproduced: same design, same result | 4/4 | 10+90 | 5.0 | 0.001 | DE converges to exact same optimum. Design is globally optimal and stable. |
 | run-25 | 1.000 | PADDLE stress: 5nm amp + single-sided coat | 4/4 | 10+94 | 5.0 | 0.010 | 5nm amp + single coat: LOD=0.010 (400x below EPA). Paddle topology is incredibly robust. |
+| run-26 | 1.000 | PADDLE ultra: stem 5um, f0=25MHz, 20nm, double-coat | 4/4 | 5+95 | 5.0 | 0.000187 | NEW RECORD! LOD=0.000187 ng/L (21,400x below EPA). f0=25MHz, Q=9112. Shortest stem. |
 
 ---
 
