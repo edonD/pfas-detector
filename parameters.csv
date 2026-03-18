@@ -1,9 +1,9 @@
 name,min,max,scale
-L_um,50,500,log
+L_um,50,300,log
 w_um,5,50,log
-t_um,0.5,10,log
-h_coat_nm,10,500,log
-Lm_um,10,200,log
-wm_um,5,200,log
-tm_um,1,50,log
-N_array,1,64,lin
+t_um,0.5,5,log
+h_coat_nm,20,400,log
+Lm_um,10,100,log
+wm_um,5,100,log
+tm_um,1,20,log
+N_array,1,32,lin

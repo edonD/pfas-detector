@@ -70,7 +70,7 @@ def run_simulation(params):
         return None
     if t > L:
         return None
-    if L / t > 500:
+    if L / t > 500 or L / t < 20:
         return None
     if h_coat > t * 0.1:
         return None
