@@ -72,7 +72,7 @@ DE: 7 params | pop=56 | maxiter=500 | workers=16
   EVALUATION REPORT — PFAS Resonant Cantilever Sensor
 ══════════════════════════════════════════════════════════════════════
 
-  Score: 1.000 / 1.00    Time: 1.6s
+  Score: 1.000 / 1.00    Time: 1.7s
 
   Spec                     Target     Measured   Unit  Status
   ────────────────────────────────────────────────────────────
