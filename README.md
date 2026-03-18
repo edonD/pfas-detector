@@ -94,6 +94,7 @@
 | run-19 | 1.000 | SiN + MIP coating (K=500), wide beam, 16-array | 4/4 | 50.0 | 2.5 | 0.005 | NEW RECORD LOD=0.005 ng/L (800x below EPA). Engineered MIP fluoropolymer coating. |
 | run-20 | 1.000 | thin SiN beam (t=1um, L/t=50), double-coat, 16-array | 4/4 | 50.0 | 1.0 | 0.186 | Thin beam with standard K=150. f0=574kHz, Q=294. Still 22x below EPA. |
 | run-21 | 1.000 | SiN, 1nm amp (near-thermal!), double-coat, 16-array | 4/4 | 50.0 | 2.5 | 0.311 | 1nm amplitude — most conservative possible. Still 13x below EPA! Proves fundamental physics is sound. |
+| run-22 | 1.000 | PADDLE (T-shape) SiN: stem 20um + paddle 80x30um | 4/4 | 20+80 | 5.0 | 0.005 | New topology! Short stiff stem + wide paddle. f0=4284kHz(!), Q=3486. LOD=0.005 ng/L (800x below EPA) with standard K=150. |
 
 ---
 

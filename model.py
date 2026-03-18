@@ -1,77 +1,95 @@
 """
 model.py — MEMS Cantilever PFAS Sensor Model
 
-Topology: Single rectangular silicon nitride (SiN) cantilever with double-sided
-          fluoropolymer coating, thermomechanical noise-limited detection,
-          and small array averaging. Field-deployable design (air operation).
+Topology: Paddle (T-shape) silicon nitride cantilever with double-sided
+          fluoropolymer coating and array averaging.
+          Narrow stem for high f0, wide paddle for maximum coating area.
 
 Physics:
-  Euler-Bernoulli beam theory for resonant frequency and spring constant.
-  Thermomechanical (Brownian) noise floor for minimum detectable frequency shift.
-  Sader/viscous + thermoelastic damping for Q-factor in air.
-  Partition coefficient model for PFAS concentration -> adsorbed mass.
+  Euler-Bernoulli beam theory (stem determines f0 and k).
+  Paddle mass at tip (lumped mass model).
+  Thermomechanical (Brownian) noise floor.
+  Sader/viscous + thermoelastic damping for Q in air.
+  Double-sided coating on both stem and paddle.
 """
 
 import numpy as np
 
-# ─── Physical constants ────────────────────────────────────────────────────
-KB = 1.381e-23   # Boltzmann constant [J/K]
+KB = 1.381e-23
 
-# ─── Material constants (silicon nitride) ──────────────────────────────────
-E_BEAM     = 270e9      # Young's modulus [Pa]
-RHO_BEAM   = 3100.0     # density [kg/m³]
-ALPHA_BEAM = 2.3e-6     # thermal expansion coefficient [K⁻¹]
-KAP_BEAM   = 30.0       # thermal conductivity [W/(m·K)]
-CP_BEAM    = 700.0      # specific heat [J/(kg·K)]
-T0         = 300.0      # ambient temperature [K]
+# Material: SiN
+E_BEAM     = 270e9
+RHO_BEAM   = 3100.0
+ALPHA_BEAM = 2.3e-6
+KAP_BEAM   = 30.0
+CP_BEAM    = 700.0
+T0         = 300.0
 
-# ─── Air properties ────────────────────────────────────────────────────────
-ETA_AIR  = 1.81e-5    # dynamic viscosity [Pa·s]
-RHO_AIR  = 1.225      # density [kg/m³]
+# Air
+ETA_AIR  = 1.81e-5
+RHO_AIR  = 1.225
 
-# ─── Fluorinated coating properties ────────────────────────────────────────
-RHO_COAT = 2100.0     # density of fluoropolymer (Teflon-like) [kg/m³]
-K_PFAS   = 150.0      # PFAS partition coefficient (coating/water)
+# Coating
+RHO_COAT = 2100.0
+K_PFAS   = 150.0
 
-# ─── Measurement parameters ───────────────────────────────────────────────
-BW       = 1.0        # measurement bandwidth [Hz] (1 s integration)
-A_OSC    = 1e-9       # oscillation amplitude [m] (1 nm — near-thermal, ultra conservative)
+# Measurement
+BW       = 1.0
+A_OSC    = 20e-9
 
 
 def run_simulation(params):
     """
-    SiN cantilever with double-sided fluoropolymer coating and small array.
+    Paddle (T-shape) SiN cantilever: narrow stem + wide paddle.
 
     params keys:
-      L_um      : beam length [um]
-      w_um      : beam width [um]
-      t_um      : beam thickness [um]
+      Ls_um     : stem length [um]
+      ws_um     : stem width [um]
+      t_um      : thickness (uniform) [um]
+      Lp_um     : paddle length [um]
+      wp_um     : paddle width [um]
       h_coat_nm : coating thickness [nm]
-      N_array   : number of cantilevers in array
+      N_array   : number of cantilevers
     """
 
-    L       = params['L_um']      * 1e-6
-    w       = params['w_um']      * 1e-6
+    Ls      = params['Ls_um']     * 1e-6
+    ws      = params['ws_um']     * 1e-6
     t       = params['t_um']      * 1e-6
+    Lp      = params['Lp_um']     * 1e-6
+    wp      = params['wp_um']     * 1e-6
     h_coat  = params['h_coat_nm'] * 1e-9
     N_array = max(1, int(round(params['N_array'])))
 
-    if L <= 0 or w <= 0 or t <= 0 or h_coat <= 0:
+    L_total = Ls + Lp
+
+    if Ls <= 0 or ws <= 0 or t <= 0 or Lp <= 0 or wp <= 0 or h_coat <= 0:
         return None
-    if t > L:
+    if t > Ls:
         return None
-    if L / t > 500 or L / t < 20:
+    if L_total / t > 500 or L_total / t < 20:
         return None
     if h_coat > t * 0.10:
         return None
+    if wp < ws:  # paddle must be wider than stem
+        return None
 
-    m_beam = RHO_BEAM * w * t * L
-    k      = E_BEAM * w * t**3 / (4 * L**3)
+    # Stem mechanics (determines spring constant)
+    k = E_BEAM * ws * t**3 / (4 * Ls**3)
 
-    A_coat = 2 * w * L  # double-sided
-    m_coat = RHO_COAT * A_coat * h_coat
-    m_total = m_beam + m_coat
-    m_eff = 0.2357 * m_total
+    # Masses
+    m_stem   = RHO_BEAM * ws * t * Ls
+    m_paddle = RHO_BEAM * wp * t * Lp
+
+    # Double-sided coating on both
+    A_coat_stem   = 2 * ws * Ls
+    A_coat_paddle = 2 * wp * Lp
+    A_coat_total  = A_coat_stem + A_coat_paddle
+
+    m_coat_stem   = RHO_COAT * A_coat_stem * h_coat
+    m_coat_paddle = RHO_COAT * A_coat_paddle * h_coat
+
+    # Effective mass: stem contributes 0.2357x, paddle at tip contributes fully
+    m_eff = 0.2357 * (m_stem + m_coat_stem) + m_paddle + m_coat_paddle
 
     if m_eff <= 0:
         return None
@@ -83,6 +101,7 @@ def run_simulation(params):
     S_Hz_kg = f0 / (2 * m_eff)
     sensitivity_hz_pg = S_Hz_kg * 1e-12
 
+    # Q-factor (use stem thickness for damping)
     omega0  = 2 * np.pi * f0
     tau_TED = RHO_BEAM * CP_BEAM * t**2 / (np.pi**2 * KAP_BEAM)
     xi      = omega0 * tau_TED
@@ -100,7 +119,7 @@ def run_simulation(params):
     delta_m_min = 2 * m_eff * delta_f_min / f0
     delta_m_min = delta_m_min / np.sqrt(N_array)
 
-    V_coat = A_coat * h_coat
+    V_coat = A_coat_total * h_coat
     V_coat_liters = V_coat * 1e3
     lod_ng_per_L = delta_m_min / (V_coat_liters * K_PFAS * 1e-9)
 
@@ -115,5 +134,5 @@ def run_simulation(params):
         '_Q_air':              Q_air,
         '_Q_TED':              Q_TED,
         '_delta_m_min_fg':     delta_m_min * 1e15,
-        '_m_coat_pg':          m_coat * 1e12,
+        '_m_coat_pg':          (m_coat_stem + m_coat_paddle) * 1e12,
     }
