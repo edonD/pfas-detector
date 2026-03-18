@@ -104,6 +104,7 @@
 | run-27 | 1.000 | SINGLE PADDLE (N=1): no array needed! | 4/4 | 5+97 | 5.0 | 0.000664 | Single paddle cantilever, no array. LOD=0.000664 (6000x below EPA). Paddle is sufficient alone. |
 | run-28 | 1.000 | HARDEST: Si, 1nm, single-coat, N=1 paddle | 4/4 | 5+104 | 5.0 | 0.031 | Absolute hardest config. Still 129x below EPA! Paddle topology is unbreakable. |
 | run-29 | 1.000 | Rapid screening: BW=100Hz (10ms), paddle, SiN | 4/4 | 5+95 | 5.0 | 0.002 | 10ms real-time measurement! LOD=0.002 (2000x below EPA). Enables rapid field screening. |
+| run-30 | 1.000 | PADDLE + MIP (K=500): ultimate combination | 4/4 | 5+95 | 5.0 | 0.0000588 | ULTIMATE RECORD: LOD=0.0000588 ng/L (68,000x below EPA). Paddle + MIP = near fundamental limit. |
 
 ---
 

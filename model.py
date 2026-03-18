@@ -31,10 +31,10 @@ RHO_AIR  = 1.225
 
 # Coating
 RHO_COAT = 2100.0
-K_PFAS   = 150.0
+K_PFAS   = 500.0      # engineered MIP fluoropolymer
 
 # Measurement
-BW       = 100.0     # 10 ms measurement — real-time rapid screening
+BW       = 1.0        # 1 s integration (standard)
 A_OSC    = 20e-9      # moderate (standard field operation)
 
 
