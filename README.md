@@ -110,6 +110,7 @@
 | run-33 | 1.000 | Continued loop: same optimum, 4th reproduction | 4/4 | 5+95 | 5.0 | 0.000187 | 4th identical result. Global optimum is absolutely stable. |
 | run-34 | 1.000 | V-SHAPE dual-stem paddle: 2k stiffness | 4/4 | 5+95 | 5.0 | 0.000107 | NEW: V-shape (2 stems). f0=32MHz, Q=10418. LOD=0.000107 (37,000x below EPA). sqrt(2) stiffer. |
 | run-35 | 1.000 | V-shape reproduced: same optimum | 4/4 | 5+95 | 5.0 | 0.000107 | V-shape global optimum confirmed. |
+| run-36 | 1.000 | V-shape: 6th consecutive reproduction | 4/4 | 5+95 | 5.0 | 0.000107 | Design locked. Globally stable across all DE seeds. |
 
 ---
 
