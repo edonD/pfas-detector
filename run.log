@@ -3,137 +3,132 @@
 ======================================================================
 
   Target: PFAS Resonant Cantilever Sensor
-  Params: 4   Specs: 4
+  Params: 5   Specs: 4
 
-DE: 4 params | pop=32 | maxiter=500 | workers=16
-  gen    0  cost=    -8.73  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=115.0μm  t=4.94μm
-  gen    3  cost=    -8.88  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=76.4μm  t=3.36μm
-  gen    4  cost=    -9.24  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=63.5μm  t=2.85μm
-  gen    7  cost=    -9.56  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.8μm  t=2.59μm
-  gen   15  cost=    -9.62  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=70.2μm  t=3.43μm
-  gen   18  cost=    -9.65  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=53.6μm  t=2.65μm
-  gen   20  cost=    -9.65  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=53.6μm  t=2.65μm
-  gen   35  cost=    -9.66  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=59.9μm  t=2.99μm
-  gen   40  cost=    -9.66  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.6μm  t=2.62μm
-  gen   46  cost=    -9.67  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.3μm  t=2.60μm
-  gen   60  cost=    -9.67  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.8μm  t=2.54μm
-  gen   61  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.0μm  t=2.59μm
-  gen   75  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.4μm  t=2.52μm
-  gen   77  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.5μm  t=2.52μm
-  gen   80  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.5μm  t=2.52μm
-  gen   81  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.5μm  t=2.52μm
-  gen   84  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.8μm  t=2.54μm
-  gen   89  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.3μm  t=2.51μm
-  gen   92  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  100  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  116  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=2.50μm
-  gen  120  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=2.50μm
-  gen  124  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  125  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  127  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  132  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  136  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  140  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  145  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  152  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  154  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  155  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  157  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  160  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  164  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  166  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  180  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  182  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  184  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  185  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  190  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  191  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  193  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  195  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  196  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  197  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  200  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  209  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  212  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  220  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  232  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  234  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  235  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  240  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  253  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  256  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  260  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  265  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  271  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  272  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  274  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  278  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  280  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  292  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  296  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  297  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  300  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  301  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  305  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  310  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  313  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  317  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  319  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  320  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  321  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  323  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  340  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  347  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  354  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  360  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  363  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  365  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  377  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  378  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  380  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  383  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  388  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  390  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  394  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  399  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  400  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  409  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  417  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  420  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  422  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  426  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  432  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  440  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  441  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  443  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  449  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  453  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  459  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  460  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  466  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  467  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  468  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  480  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  489  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
-  gen  492  cost=    -9.68  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=2.50μm
+DE: 5 params | pop=40 | maxiter=500 | workers=16
+  gen    0  cost=  1459.91  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=126.1μm  t=2.10μm
+  gen    1  cost=   708.51  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.63μm
+  gen    3  cost=    -6.01  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.92μm
+  gen    7  cost=    -6.98  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=79.9μm  t=1.57μm
+  gen   14  cost=    -7.34  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.93μm
+  gen   16  cost=    -7.82  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.97μm
+  gen   20  cost=    -7.82  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.97μm
+  gen   40  cost=    -7.82  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.97μm
+  gen   43  cost=    -7.90  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=77.8μm  t=1.53μm
+  gen   46  cost=    -8.18  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=0.98μm
+  gen   50  cost=    -8.21  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=57.1μm  t=1.14μm
+  gen   55  cost=    -8.27  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen   60  cost=    -8.27  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen   64  cost=    -8.28  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=54.6μm  t=1.09μm
+  gen   75  cost=    -8.31  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=51.7μm  t=1.03μm
+  gen   80  cost=    -8.31  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=51.7μm  t=1.03μm
+  gen   82  cost=    -8.32  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=52.3μm  t=1.04μm
+  gen   97  cost=    -8.33  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=1.00μm
+  gen   98  cost=    -8.33  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.9μm  t=1.02μm
+  gen   99  cost=    -8.33  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=51.3μm  t=1.03μm
+  gen  100  cost=    -8.33  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=51.3μm  t=1.03μm
+  gen  101  cost=    -8.34  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.7μm  t=1.01μm
+  gen  106  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.3μm  t=1.00μm
+  gen  120  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.3μm  t=1.00μm
+  gen  121  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.4μm  t=1.01μm
+  gen  123  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.2μm  t=1.00μm
+  gen  130  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.3μm  t=1.01μm
+  gen  133  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  140  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  148  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  152  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=1.00μm
+  gen  160  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.1μm  t=1.00μm
+  gen  166  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  167  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  173  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  175  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  180  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  186  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  196  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  197  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  199  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  200  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  215  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  220  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  227  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  229  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  233  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  240  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  241  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  246  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  250  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  260  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  264  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  267  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  274  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  275  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  276  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  280  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  281  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  282  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  285  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  286  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  287  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  290  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  296  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  300  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  304  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  311  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  313  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  314  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  318  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  320  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  322  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  323  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  332  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  337  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  340  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  346  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  360  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  366  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  378  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  380  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  381  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  399  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  400  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  412  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  415  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  420  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  434  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  436  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  438  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  440  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  445  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  448  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  451  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  460  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  461  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  468  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  470  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  475  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  480  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  488  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  490  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
+  gen  491  cost=    -8.36  LOD=99.00 ng/L  f0=0 kHz  Q=0  L=50.0μm  t=1.00μm
 
 ══════════════════════════════════════════════════════════════════════
   EVALUATION REPORT — PFAS Resonant Cantilever Sensor
 ══════════════════════════════════════════════════════════════════════
 
-  Score: 1.000 / 1.00    Time: 1.6s
+  Score: 1.000 / 1.00    Time: 2.0s
 
   Spec                     Target     Measured   Unit  Status
   ────────────────────────────────────────────────────────────
-  detection_limit            <4.0        0.318   ng/L  PASS ✓
-  f0_khz                     >100     1457.461    kHz  PASS ✓
-  Q_factor                    >50     1084.286         PASS ✓
-  sensitivity_hz_pg          >1.0   144856.027  Hz/pg  PASS ✓
+  detection_limit            <4.0        1.635   ng/L  PASS ✓
+  f0_khz                     >100      525.632    kHz  PASS ✓
+  Q_factor                    >50      211.920         PASS ✓
+  sensitivity_hz_pg          >1.0   168626.838  Hz/pg  PASS ✓
 
   Geometry:
     L_um           = 5.0000e+01
-    h_coat_nm      = 3.7500e+02
-    t_um           = 2.5000e+00
+    N_array        = 7.6436e+00
+    h_coat_nm      = 1.5000e+02
+    t_um           = 1.0000e+00
     w_um           = 5.0000e+01
 
 ══════════════════════════════════════════════════════════════════════

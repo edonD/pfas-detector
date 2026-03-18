@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.318 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 1457.5 kHz | > 100 kHz | PASS |
-| Q-factor | 1084 | > 50 | PASS |
-| Sensitivity | 144856.0 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 1.635 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 525.6 kHz | > 100 kHz | PASS |
+| Q-factor | 212 | > 50 | PASS |
+| Sensitivity | 168626.8 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -48,11 +48,13 @@
 |-----------|-------|
 | Length (L) | 50.0 um |
 | Width (w) | 50.0 um |
-| Thickness (t) | 2.50 um |
-| Coating thickness | 375 nm |
-| Material | Silicon nitride (SiN) |
+| Thickness (t) | 1.00 um |
+| Coating thickness | 150 nm |
+| Array size (N) | 8 |
+| Material | Silicon |
 | Oscillation amplitude | 10 nm (conservative) |
-| Topology | Single SiN rect beam + single-sided coat (robust) |
+| L/t constraint | >= 50 (traditional MEMS) |
+| Topology | Si rect beam + single-coat + 8-element array (hardest config) |
 
 ---
 
@@ -60,9 +62,9 @@
 
 | Ratio | Value | Meaning |
 |-------|-------|---------|
-| L/t (aspect ratio) | 20 | Slender beam regime (< 500) |
-| f0 | 1457.5 kHz | Practical readout range |
-| delta_m_min | 0.32 fg | Minimum detectable mass |
+| L/t (aspect ratio) | 50 | Traditional MEMS cantilever |
+| f0 | 525.6 kHz | Practical readout range |
+| delta_m_min | 1.6 fg | Minimum detectable mass |
 
 ---
 
@@ -76,6 +78,8 @@
 | run-4 | 1.000 | rect beam + double-coat + array(32), no proof mass | 4/4 | 50.0 | 2.5 | 0.010 | Simplified: removed proof mass entirely. Same performance. Simpler fabrication. |
 | run-5 | 1.000 | single rect beam + single-sided coat, no array | 4/4 | 50.0 | 2.5 | 0.075 | Ultimate simplification: single cantilever, single-sided coat, 4 params only. LOD=0.075 ng/L still 53x below EPA. Key: thermomechanical noise floor is the enabling physics. |
 | run-6 | 1.000 | SiN beam + conservative 10nm amplitude | 4/4 | 50.0 | 2.5 | 0.318 | Switched to SiN (E=270GPa, rho=3100) and reduced A_OSC to 10nm (5x more conservative). Still passes all specs. Q=1084 (higher than Si). Robust design. |
+| run-7 | 0.946 | Si beam, 10nm, L/t>=50, no array | 3/4 | 50.0 | 1.0 | 4.624 | Hardest config: Si, 10nm, L/t=50, single cantilever. LOD just misses at 4.6 ng/L. Score still passes >=0.90. |
+| run-8 | 1.000 | Si beam, 10nm, L/t>=50, 8-element array | 4/4 | 50.0 | 1.0 | 1.635 | Added minimal 8-cantilever array. LOD drops to 1.6 ng/L. All specs pass even in hardest configuration. |
 
 ---
 
@@ -102,7 +106,7 @@ PFAS in water -> adsorbs on fluoropolymer coating
 - **Mass sensing**: Sauerbrey equation
 - **Q-factor**: Sader viscous damping + thermoelastic damping
 - **Noise floor**: Thermomechanical (Brownian) noise limit
-- **Topology**: Single rectangular silicon cantilever + single-sided fluoropolymer coating
+- **Topology**: Silicon cantilever + single-sided fluoropolymer coating + 8-element array
 - **Optimizer**: Differential Evolution (16 EC2 CPUs)
 - **Evaluator**: Pure Python analytical model (microseconds per evaluation)
 - **Process**: AI changes geometry topology -> DE finds dimensions -> evaluator scores

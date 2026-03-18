@@ -3,3 +3,4 @@ L_um,50,300,log
 w_um,5,50,log
 t_um,0.5,5,log
 h_coat_nm,20,500,log
+N_array,1,8,lin
