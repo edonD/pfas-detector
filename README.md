@@ -83,6 +83,7 @@
 | run-8 | 1.000 | Si beam, 10nm, L/t>=50, 8-element array | 4/4 | 50.0 | 1.0 | 1.635 | Added minimal 8-cantilever array. LOD drops to 1.6 ng/L. All specs pass even in hardest configuration. |
 | run-9 | 1.000 | vacuum-packaged Si, 10nm, L/t>=50, 8-array | 4/4 | 50.0 | 1.0 | 0.075 | Vacuum packaging eliminates air damping. Q=100,000 (capped). LOD=0.075 ng/L. 53x below EPA even with all conservative choices. |
 | run-10 | 1.000 | field-deployable: Si, air, double-coat, 16-array, 20nm | 4/4 | 50.0 | 2.5 | 0.026 | Best field design: air operation, double-sided coat, 16 cantilevers, 20nm amp. LOD=0.026 ng/L (154x below EPA). Wide beam (100um) for stability. |
+| run-11 | 1.000 | microfluidic: L>=100um, air, double-coat, 16-array | 4/4 | 100.0 | 3.33 | 0.095 | Longer beam for microfluidic integration. L=100um, w=100um, L/t=30. f0=430kHz, Q=636. Still 42x below EPA. |
 
 ---
 
