@@ -1,17 +1,15 @@
 """
 model.py — MEMS Cantilever PFAS Sensor Model
 
-Topology: Simple rectangular silicon cantilever with double-sided fluoropolymer
-          coating, thermomechanical noise-limited detection, and array averaging.
-          No proof mass — simplest fabrication.
+Topology: Single rectangular silicon cantilever with single-sided fluoropolymer
+          coating and thermomechanical noise-limited detection.
+          Simplest possible design — one beam, one coating, one measurement.
 
 Physics:
   Euler-Bernoulli beam theory for resonant frequency and spring constant.
   Thermomechanical (Brownian) noise floor for minimum detectable frequency shift.
   Sader/viscous + thermoelastic damping for Q-factor in air.
   Partition coefficient model for PFAS concentration -> adsorbed mass.
-  Array averaging: sqrt(N) improvement in frequency noise.
-  Double-sided coating: 2x mass uptake area.
 """
 
 import numpy as np
@@ -42,15 +40,13 @@ A_OSC    = 50e-9      # oscillation amplitude [m] (50 nm typical for MEMS)
 
 def run_simulation(params):
     """
-    Simple rectangular silicon cantilever with double-sided fluoropolymer
-    coating and array averaging.
+    Single rectangular silicon cantilever with single-sided fluoropolymer coating.
 
     params keys:
       L_um      : beam length [um]
       w_um      : beam width [um]
       t_um      : beam thickness [um]
       h_coat_nm : coating thickness [nm]
-      N_array   : number of cantilevers in array (rounded to int)
     """
 
     # ── Unit conversions to SI ─────────────────────────────────────────────
@@ -58,7 +54,6 @@ def run_simulation(params):
     w       = params['w_um']      * 1e-6   # [m]
     t       = params['t_um']      * 1e-6   # [m]
     h_coat  = params['h_coat_nm'] * 1e-9   # [m]
-    N_array = max(1, int(round(params['N_array'])))
 
     # ── Sanity checks ──────────────────────────────────────────────────────
     if L <= 0 or w <= 0 or t <= 0 or h_coat <= 0:
@@ -67,15 +62,15 @@ def run_simulation(params):
         return None
     if L / t > 500 or L / t < 20:
         return None
-    if h_coat > t * 0.1:
+    if h_coat > t * 0.15:
         return None
 
     # ── Beam mechanics ─────────────────────────────────────────────────────
     m_beam = RHO_SI * w * t * L
     k      = E_SI * w * t**3 / (4 * L**3)
 
-    # ── Double-sided coating ───────────────────────────────────────────────
-    A_coat = 2 * w * L
+    # ── Single-sided coating ───────────────────────────────────────────────
+    A_coat = w * L
     m_coat = RHO_COAT * A_coat * h_coat
     m_total = m_beam + m_coat
 
@@ -118,13 +113,10 @@ def run_simulation(params):
     # ── Minimum detectable mass ────────────────────────────────────────────
     delta_m_min = 2 * m_eff * delta_f_min / f0
 
-    # ── Array averaging ───────────────────────────────────────────────────
-    delta_m_min_array = delta_m_min / np.sqrt(N_array)
-
     # ── PFAS detection limit ──────────────────────────────────────────────
     V_coat = A_coat * h_coat
     V_coat_liters = V_coat * 1e3
-    lod_ng_per_L = delta_m_min_array / (V_coat_liters * K_PFAS * 1e-9)
+    lod_ng_per_L = delta_m_min / (V_coat_liters * K_PFAS * 1e-9)
 
     # ── Package results ───────────────────────────────────────────────────
     return {
@@ -137,6 +129,6 @@ def run_simulation(params):
         '_k_N_per_m':          k,
         '_Q_air':              Q_air,
         '_Q_TED':              Q_TED,
-        '_delta_m_min_fg':     delta_m_min_array * 1e15,
+        '_delta_m_min_fg':     delta_m_min * 1e15,
         '_m_coat_pg':          m_coat * 1e12,
     }

@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.010 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 1288.7 kHz | > 100 kHz | PASS |
-| Q-factor | 822 | > 50 | PASS |
-| Sensitivity | 159061.9 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 0.075 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 1314.1 kHz | > 100 kHz | PASS |
+| Q-factor | 829 | > 50 | PASS |
+| Sensitivity | 168626.8 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -49,9 +49,8 @@
 | Length (L) | 50.0 um |
 | Width (w) | 50.0 um |
 | Thickness (t) | 2.50 um |
-| Coating thickness | 250 nm |
-| Array size (N) | 32 |
-| Topology | Simple rect beam + double-sided coat + array |
+| Coating thickness | 375 nm |
+| Topology | Single rect beam + single-sided coat (simplest) |
 
 ---
 
@@ -60,8 +59,8 @@
 | Ratio | Value | Meaning |
 |-------|-------|---------|
 | L/t (aspect ratio) | 20 | Slender beam regime (< 500) |
-| f0 | 1288.7 kHz | Practical readout range |
-| delta_m_min | 0.010 fg | Minimum detectable mass |
+| f0 | 1314.1 kHz | Practical readout range |
+| delta_m_min | 0.075 fg | Minimum detectable mass |
 
 ---
 
@@ -73,6 +72,7 @@
 | run-2 | 1.000 | proof-mass + double-coat + array(32) + L/t>=10 | 4/4 | 50.0 | 5.0 | 0.002 | Enforced L/t>=10. DE converges to L/t=10 boundary. f0=2551 kHz, Q=1972. |
 | run-3 | 1.000 | proof-mass + double-coat + array(32) + L/t>=20 | 4/4 | 50.0 | 2.5 | 0.011 | Enforced L/t>=20 for realistic cantilever. f0=1267 kHz, Q=815. More fabrication-friendly geometry. |
 | run-4 | 1.000 | rect beam + double-coat + array(32), no proof mass | 4/4 | 50.0 | 2.5 | 0.010 | Simplified: removed proof mass entirely. Same performance. Simpler fabrication. |
+| run-5 | 1.000 | single rect beam + single-sided coat, no array | 4/4 | 50.0 | 2.5 | 0.075 | Ultimate simplification: single cantilever, single-sided coat, 4 params only. LOD=0.075 ng/L still 53x below EPA. Key: thermomechanical noise floor is the enabling physics. |
 
 ---
 
@@ -99,7 +99,7 @@ PFAS in water -> adsorbs on fluoropolymer coating
 - **Mass sensing**: Sauerbrey equation
 - **Q-factor**: Sader viscous damping + thermoelastic damping
 - **Noise floor**: Thermomechanical (Brownian) noise limit
-- **Topology**: Simple rectangular beam + double-sided fluoropolymer coating + 32-element array
+- **Topology**: Single rectangular silicon cantilever + single-sided fluoropolymer coating
 - **Optimizer**: Differential Evolution (16 EC2 CPUs)
 - **Evaluator**: Pure Python analytical model (microseconds per evaluation)
 - **Process**: AI changes geometry topology -> DE finds dimensions -> evaluator scores
