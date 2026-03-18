@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.005 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 4284.4 kHz | > 100 kHz | PASS |
-| Q-factor | 3486 | > 50 | PASS |
-| Sensitivity | 49064.0 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 0.001 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 9036.2 kHz | > 100 kHz | PASS |
+| Q-factor | 5267 | > 50 | PASS |
+| Sensitivity | 57537.0 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -46,9 +46,10 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Stem length (Ls) | 20.0 um |
-| Paddle length (Lp) | 80.0 um |
-| Stem/Paddle width | 30.0 um |
+| Stem length (Ls) | 10.0 um |
+| Paddle length (Lp) | 90.0 um |
+| Stem width (ws) | 30.0 um |
+| Paddle width (wp) | 50.0 um |
 | Thickness (t) | 5.0 um |
 | Coating thickness | 400 nm (double-sided) |
 | Array size (N) | 16 |
@@ -64,9 +65,9 @@
 | Ratio | Value | Meaning |
 |-------|-------|---------|
 | L_total/t | 20 | Practical MEMS cantilever |
-| f0 | 4284.4 kHz | High-frequency paddle design |
-| Q | 3486 | Air-damped (SiN, thick beam) |
-| delta_m_min | 0.005 fg | Minimum detectable mass |
+| f0 | 9036.2 kHz | High-frequency paddle design |
+| Q | 5267 | Air-damped (SiN, thick beam) |
+| delta_m_min | 0.001 fg | Minimum detectable mass |
 
 ---
 
@@ -96,6 +97,7 @@
 | run-20 | 1.000 | thin SiN beam (t=1um, L/t=50), double-coat, 16-array | 4/4 | 50.0 | 1.0 | 0.186 | Thin beam with standard K=150. f0=574kHz, Q=294. Still 22x below EPA. |
 | run-21 | 1.000 | SiN, 1nm amp (near-thermal!), double-coat, 16-array | 4/4 | 50.0 | 2.5 | 0.311 | 1nm amplitude — most conservative possible. Still 13x below EPA! Proves fundamental physics is sound. |
 | run-22 | 1.000 | PADDLE (T-shape) SiN: stem 20um + paddle 80x30um | 4/4 | 20+80 | 5.0 | 0.005 | New topology! Short stiff stem + wide paddle. f0=4284kHz(!), Q=3486. LOD=0.005 ng/L (800x below EPA) with standard K=150. |
+| run-23 | 1.000 | PADDLE optimized: stem 10um + paddle 90x50um | 4/4 | 10+90 | 5.0 | 0.001 | ABSOLUTE RECORD! LOD=0.001 ng/L (4000x below EPA). f0=9036kHz, Q=5267. Shorter stem = higher f0. |
 
 ---
 

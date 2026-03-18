@@ -1,8 +1,8 @@
 name,min,max,scale
-Ls_um,20,200,log
+Ls_um,10,100,log
 ws_um,2,30,log
 t_um,0.5,5,log
-Lp_um,10,200,log
-wp_um,20,300,log
+Lp_um,20,300,log
+wp_um,50,500,log
 h_coat_nm,10,400,log
 N_array,1,16,lin
