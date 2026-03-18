@@ -65,9 +65,7 @@ def run_simulation(params):
         return None
     if t > L:
         return None
-    if L / t > 500 or L / t < 30:
-        return None
-    if L < 200e-6:  # minimum 200 um — long beam stress test
+    if L / t > 500 or L / t < 20:
         return None
     if h_coat > t * 0.10:
         return None
