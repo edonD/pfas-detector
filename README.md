@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.075 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 1314.1 kHz | > 100 kHz | PASS |
-| Q-factor | 829 | > 50 | PASS |
-| Sensitivity | 168626.8 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 0.318 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 1457.5 kHz | > 100 kHz | PASS |
+| Q-factor | 1084 | > 50 | PASS |
+| Sensitivity | 144856.0 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -50,7 +50,9 @@
 | Width (w) | 50.0 um |
 | Thickness (t) | 2.50 um |
 | Coating thickness | 375 nm |
-| Topology | Single rect beam + single-sided coat (simplest) |
+| Material | Silicon nitride (SiN) |
+| Oscillation amplitude | 10 nm (conservative) |
+| Topology | Single SiN rect beam + single-sided coat (robust) |
 
 ---
 
@@ -59,8 +61,8 @@
 | Ratio | Value | Meaning |
 |-------|-------|---------|
 | L/t (aspect ratio) | 20 | Slender beam regime (< 500) |
-| f0 | 1314.1 kHz | Practical readout range |
-| delta_m_min | 0.075 fg | Minimum detectable mass |
+| f0 | 1457.5 kHz | Practical readout range |
+| delta_m_min | 0.32 fg | Minimum detectable mass |
 
 ---
 
@@ -73,6 +75,7 @@
 | run-3 | 1.000 | proof-mass + double-coat + array(32) + L/t>=20 | 4/4 | 50.0 | 2.5 | 0.011 | Enforced L/t>=20 for realistic cantilever. f0=1267 kHz, Q=815. More fabrication-friendly geometry. |
 | run-4 | 1.000 | rect beam + double-coat + array(32), no proof mass | 4/4 | 50.0 | 2.5 | 0.010 | Simplified: removed proof mass entirely. Same performance. Simpler fabrication. |
 | run-5 | 1.000 | single rect beam + single-sided coat, no array | 4/4 | 50.0 | 2.5 | 0.075 | Ultimate simplification: single cantilever, single-sided coat, 4 params only. LOD=0.075 ng/L still 53x below EPA. Key: thermomechanical noise floor is the enabling physics. |
+| run-6 | 1.000 | SiN beam + conservative 10nm amplitude | 4/4 | 50.0 | 2.5 | 0.318 | Switched to SiN (E=270GPa, rho=3100) and reduced A_OSC to 10nm (5x more conservative). Still passes all specs. Q=1084 (higher than Si). Robust design. |
 
 ---
 
