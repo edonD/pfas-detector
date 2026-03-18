@@ -12,9 +12,9 @@
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
 | Detection limit | 0.005 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 1435.6 kHz | > 100 kHz | PASS |
-| Q-factor | 1078 | > 50 | PASS |
-| Sensitivity | 34605.8 Hz/pg | > 1.0 Hz/pg | PASS |
+| Resonant frequency | 4284.4 kHz | > 100 kHz | PASS |
+| Q-factor | 3486 | > 50 | PASS |
+| Sensitivity | 49064.0 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -46,15 +46,16 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Length (L) | 50.0 um |
-| Width (w) | 200.0 um |
-| Thickness (t) | 2.50 um |
-| Coating thickness | 250 nm (double-sided) |
+| Stem length (Ls) | 20.0 um |
+| Paddle length (Lp) | 80.0 um |
+| Stem/Paddle width | 30.0 um |
+| Thickness (t) | 5.0 um |
+| Coating thickness | 400 nm (double-sided) |
 | Array size (N) | 16 |
-| Material | Silicon |
+| Material | Silicon nitride (SiN) |
 | Oscillation amplitude | 20 nm (moderate) |
 | Operation | Air (field-deployable) |
-| Topology | Si rect beam + double-coat + 16-array (field design) |
+| Topology | Paddle (T-shape) SiN + double-coat + 16-array |
 
 ---
 
@@ -62,10 +63,10 @@
 
 | Ratio | Value | Meaning |
 |-------|-------|---------|
-| L/t (aspect ratio) | 20 | Practical MEMS cantilever |
-| f0 | 1435.6 kHz | Practical readout range |
-| Q | 1078 | Air-damped (SiN) |
-| delta_m_min | 0.016 fg | Minimum detectable mass |
+| L_total/t | 20 | Practical MEMS cantilever |
+| f0 | 4284.4 kHz | High-frequency paddle design |
+| Q | 3486 | Air-damped (SiN, thick beam) |
+| delta_m_min | 0.005 fg | Minimum detectable mass |
 
 ---
 
