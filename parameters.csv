@@ -2,7 +2,7 @@ name,min,max,scale
 Ls_um,5,50,log
 ws_um,2,30,log
 t_um,1,5,log
-Lp_um,20,300,log
-wp_um,50,500,log
+Lp_um,20,200,log
+wp_um,20,200,log
 h_coat_nm,20,400,log
-N_array,1,16,lin
+N_array,1,1,lin
