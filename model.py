@@ -67,7 +67,7 @@ def run_simulation(params):
         return None
     if L / t > 500 or L / t < 30:
         return None
-    if L < 100e-6:  # minimum 100 um for microfluidic integration
+    if L < 200e-6:  # minimum 200 um — long beam stress test
         return None
     if h_coat > t * 0.10:
         return None
