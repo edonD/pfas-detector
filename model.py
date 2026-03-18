@@ -1,18 +1,17 @@
 """
 model.py — MEMS Cantilever PFAS Sensor Model
 
-Topology: Single rectangular silicon cantilever with single-sided fluoropolymer
-          coating, thermomechanical noise-limited detection, conservative amplitude,
-          and small array averaging. Traditional MEMS geometry (L/t >= 50).
-
-          Vacuum-packaged design: air damping eliminated, Q limited by
-          thermoelastic damping only. Realistic for hermetically sealed MEMS.
+Topology: Single rectangular silicon cantilever with double-sided fluoropolymer
+          coating, thermomechanical noise-limited detection, and small array.
+          Air operation (field-deployable), realistic MEMS geometry.
 
 Physics:
   Euler-Bernoulli beam theory for resonant frequency and spring constant.
   Thermomechanical (Brownian) noise floor for minimum detectable frequency shift.
-  Thermoelastic damping (Zener) for Q-factor — no air damping in vacuum.
+  Sader/viscous + thermoelastic damping for Q-factor in air.
   Partition coefficient model for PFAS concentration -> adsorbed mass.
+  Double-sided coating: 2x mass uptake area.
+  Array averaging: sqrt(N) noise reduction.
 """
 
 import numpy as np
@@ -28,19 +27,23 @@ KAP_SI   = 148.0      # thermal conductivity [W/(m·K)]
 CP_SI    = 700.0      # specific heat [J/(kg·K)]
 T0       = 300.0      # ambient temperature [K]
 
+# ─── Air properties ────────────────────────────────────────────────────────
+ETA_AIR  = 1.81e-5    # dynamic viscosity [Pa·s]
+RHO_AIR  = 1.225      # density [kg/m³]
+
 # ─── Fluorinated coating properties ────────────────────────────────────────
 RHO_COAT = 2100.0     # density of fluoropolymer (Teflon-like) [kg/m³]
 K_PFAS   = 150.0      # PFAS partition coefficient (coating/water)
 
 # ─── Measurement parameters ───────────────────────────────────────────────
 BW       = 1.0        # measurement bandwidth [Hz] (1 s integration)
-A_OSC    = 10e-9      # oscillation amplitude [m] (10 nm — conservative)
+A_OSC    = 20e-9      # oscillation amplitude [m] (20 nm — moderate)
 
 
 def run_simulation(params):
     """
-    Single rectangular silicon cantilever, vacuum-packaged, with single-sided
-    fluoropolymer coating and small array.
+    Single rectangular silicon cantilever with double-sided fluoropolymer
+    coating, operating in air, with small array averaging.
 
     params keys:
       L_um      : beam length [um]
@@ -62,17 +65,17 @@ def run_simulation(params):
         return None
     if t > L:
         return None
-    if L / t > 500 or L / t < 50:
+    if L / t > 500 or L / t < 20:
         return None
-    if h_coat > t * 0.15:
+    if h_coat > t * 0.10:
         return None
 
     # ── Beam mechanics ─────────────────────────────────────────────────────
     m_beam = RHO_SI * w * t * L
     k      = E_SI * w * t**3 / (4 * L**3)
 
-    # ── Single-sided coating ───────────────────────────────────────────────
-    A_coat = w * L
+    # ── Double-sided coating ───────────────────────────────────────────────
+    A_coat = 2 * w * L  # both sides
     m_coat = RHO_COAT * A_coat * h_coat
     m_total = m_beam + m_coat
     m_eff = 0.2357 * m_total
@@ -89,7 +92,7 @@ def run_simulation(params):
     S_Hz_kg = f0 / (2 * m_eff)
     sensitivity_hz_pg = S_Hz_kg * 1e-12
 
-    # ── Q-factor (vacuum — thermoelastic damping only) ─────────────────────
+    # ── Q-factor (air + TED) ──────────────────────────────────────────────
     omega0  = 2 * np.pi * f0
     tau_TED = RHO_SI * CP_SI * t**2 / (np.pi**2 * KAP_SI)
     xi      = omega0 * tau_TED
@@ -98,17 +101,16 @@ def run_simulation(params):
     Q_TED_inv = Delta_E * xi / (1 + xi**2)
     Q_TED     = 1.0 / Q_TED_inv if Q_TED_inv > 0 else 1e9
 
-    # In vacuum, Q is limited only by TED (typically 10,000 - 1,000,000)
-    # Add a practical upper limit of 100,000 for realistic electronics
-    Q = min(Q_TED, 100000)
+    denom_air = np.sqrt(RHO_AIR * ETA_AIR / (np.pi * f0))
+    Q_air     = (RHO_SI * t) / (3.0 * denom_air) if denom_air > 0 else 1e9
+
+    Q = 1.0 / (1.0 / Q_air + 1.0 / Q_TED)
 
     # ── Thermomechanical noise-limited frequency resolution ────────────────
     delta_f_min = (1.0 / A_OSC) * np.sqrt(KB * T0 * f0 * BW / (np.pi * k * Q))
 
     # ── Minimum detectable mass ────────────────────────────────────────────
     delta_m_min = 2 * m_eff * delta_f_min / f0
-
-    # ── Array averaging ───────────────────────────────────────────────────
     delta_m_min_array = delta_m_min / np.sqrt(N_array)
 
     # ── PFAS detection limit ──────────────────────────────────────────────
@@ -125,7 +127,7 @@ def run_simulation(params):
         '_f0_hz':              f0,
         '_m_eff_pg':           m_eff * 1e12,
         '_k_N_per_m':          k,
-        '_Q_air':              0,
+        '_Q_air':              Q_air,
         '_Q_TED':              Q_TED,
         '_delta_m_min_fg':     delta_m_min_array * 1e15,
         '_m_coat_pg':          m_coat * 1e12,

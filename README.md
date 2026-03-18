@@ -11,10 +11,10 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.075 ng/L | < 4.0 ng/L | PASS |
-| Resonant frequency | 525.6 kHz | > 100 kHz | PASS |
-| Q-factor | 100000 | > 50 | PASS |
-| Sensitivity | 168626.8 Hz/pg | > 1.0 Hz/pg | PASS |
+| Detection limit | 0.026 ng/L | < 4.0 ng/L | PASS |
+| Resonant frequency | 1288.7 kHz | > 100 kHz | PASS |
+| Q-factor | 822 | > 50 | PASS |
+| Sensitivity | 79531.0 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
 
@@ -47,15 +47,14 @@
 | Parameter | Value |
 |-----------|-------|
 | Length (L) | 50.0 um |
-| Width (w) | 50.0 um |
-| Thickness (t) | 1.00 um |
-| Coating thickness | 150 nm |
-| Array size (N) | 8 |
+| Width (w) | 100.0 um |
+| Thickness (t) | 2.50 um |
+| Coating thickness | 250 nm (double-sided) |
+| Array size (N) | 16 |
 | Material | Silicon |
-| Oscillation amplitude | 10 nm (conservative) |
-| L/t constraint | >= 50 (traditional MEMS) |
-| Packaging | Vacuum (hermetic seal) |
-| Topology | Si rect beam + single-coat + 8-array + vacuum pkg |
+| Oscillation amplitude | 20 nm (moderate) |
+| Operation | Air (field-deployable) |
+| Topology | Si rect beam + double-coat + 16-array (field design) |
 
 ---
 
@@ -63,10 +62,10 @@
 
 | Ratio | Value | Meaning |
 |-------|-------|---------|
-| L/t (aspect ratio) | 50 | Traditional MEMS cantilever |
-| f0 | 525.6 kHz | Practical readout range |
-| Q | 100,000 | Vacuum-limited (TED cap) |
-| delta_m_min | 0.075 fg | Minimum detectable mass |
+| L/t (aspect ratio) | 20 | Practical MEMS cantilever |
+| f0 | 1288.7 kHz | Practical readout range |
+| Q | 822 | Air-damped |
+| delta_m_min | 0.026 fg | Minimum detectable mass |
 
 ---
 
@@ -83,6 +82,7 @@
 | run-7 | 0.946 | Si beam, 10nm, L/t>=50, no array | 3/4 | 50.0 | 1.0 | 4.624 | Hardest config: Si, 10nm, L/t=50, single cantilever. LOD just misses at 4.6 ng/L. Score still passes >=0.90. |
 | run-8 | 1.000 | Si beam, 10nm, L/t>=50, 8-element array | 4/4 | 50.0 | 1.0 | 1.635 | Added minimal 8-cantilever array. LOD drops to 1.6 ng/L. All specs pass even in hardest configuration. |
 | run-9 | 1.000 | vacuum-packaged Si, 10nm, L/t>=50, 8-array | 4/4 | 50.0 | 1.0 | 0.075 | Vacuum packaging eliminates air damping. Q=100,000 (capped). LOD=0.075 ng/L. 53x below EPA even with all conservative choices. |
+| run-10 | 1.000 | field-deployable: Si, air, double-coat, 16-array, 20nm | 4/4 | 50.0 | 2.5 | 0.026 | Best field design: air operation, double-sided coat, 16 cantilevers, 20nm amp. LOD=0.026 ng/L (154x below EPA). Wide beam (100um) for stability. |
 
 ---
 
@@ -109,7 +109,7 @@ PFAS in water -> adsorbs on fluoropolymer coating
 - **Mass sensing**: Sauerbrey equation
 - **Q-factor**: Sader viscous damping + thermoelastic damping
 - **Noise floor**: Thermomechanical (Brownian) noise limit
-- **Topology**: Silicon cantilever + single-sided fluoropolymer coating + 8-element array
+- **Topology**: Silicon cantilever + double-sided fluoropolymer coating + 16-element array
 - **Optimizer**: Differential Evolution (16 EC2 CPUs)
 - **Evaluator**: Pure Python analytical model (microseconds per evaluation)
 - **Process**: AI changes geometry topology -> DE finds dimensions -> evaluator scores
