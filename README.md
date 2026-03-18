@@ -112,6 +112,7 @@
 | run-35 | 1.000 | V-shape reproduced: same optimum | 4/4 | 5+95 | 5.0 | 0.000107 | V-shape global optimum confirmed. |
 | run-36 | 1.000 | V-shape: 6th consecutive reproduction | 4/4 | 5+95 | 5.0 | 0.000107 | Design locked. Globally stable across all DE seeds. |
 | run-37 | 1.000 | V-shape: 7th reproduction | 4/4 | 5+95 | 5.0 | 0.000107 | Continued loop. Same result. |
+| run-38 | 1.000 | V-shape: 8th reproduction | 4/4 | 5+95 | 5.0 | 0.000107 | Loop continues. |
 
 ---
 
