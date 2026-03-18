@@ -31,7 +31,7 @@ RHO_AIR  = 1.225      # density [kg/m³]
 
 # ─── Fluorinated coating properties ────────────────────────────────────────
 RHO_COAT = 2100.0     # density of fluoropolymer (Teflon-like) [kg/m³]
-K_PFAS   = 500.0      # PFAS partition coefficient — engineered fluoropolymer MIP coating
+K_PFAS   = 150.0      # PFAS partition coefficient (coating/water)
 
 # ─── Measurement parameters ───────────────────────────────────────────────
 BW       = 1.0        # measurement bandwidth [Hz] (1 s integration)
@@ -60,7 +60,7 @@ def run_simulation(params):
         return None
     if t > L:
         return None
-    if L / t > 500 or L / t < 20:
+    if L / t > 500 or L / t < 50:
         return None
     if h_coat > t * 0.10:
         return None
