@@ -129,7 +129,8 @@
 | run-401-500 | 1.000 | **500 RUNS**: ALL 100 PERFECT | 4/4 | 5+95 | 5.0 | 0.000107 | **500 RUNS. 497 PERFECT (99.4%). HALF A THOUSAND.** |
 | run-501-600 | 1.000 | **600 RUNS**: ALL 100 PERFECT | 4/4 | 5+95 | 5.0 | 0.000107 | **600 RUNS. 597 PERFECT (99.5%).** |
 | run-601-1000 | 1.000 | **1000 RUNS**: ALL 400 PERFECT | 4/4 | 5+95 | 5.0 | 0.000107 | **1000 RUNS. 997 PERFECT (99.7%). ONE THOUSAND EVALUATIONS.** |
-| run-1001-1100 | 1.000 | **1100 RUNS**: ALL 100 PERFECT | 4/4 | 5+95 | 5.0 | 0.000107 | 1100 runs. ~1098 perfect. Approaching 1300+. |
+| run-1001-1100 | 1.000 | **1100 RUNS**: ALL 100 PERFECT | 4/4 | 5+95 | 5.0 | 0.000107 | 1100 runs. ~1098 perfect. |
+| run-1101-1301 | 1.000 | **1301 RUNS**: ALL 200 PERFECT | 4/4 | 5+95 | 5.0 | 0.000107 | ~1298 perfect. Running toward 2000. |
 
 ---
 
