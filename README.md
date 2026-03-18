@@ -102,6 +102,7 @@
 | run-25 | 1.000 | PADDLE stress: 5nm amp + single-sided coat | 4/4 | 10+94 | 5.0 | 0.010 | 5nm amp + single coat: LOD=0.010 (400x below EPA). Paddle topology is incredibly robust. |
 | run-26 | 1.000 | PADDLE ultra: stem 5um, f0=25MHz, 20nm, double-coat | 4/4 | 5+95 | 5.0 | 0.000187 | NEW RECORD! LOD=0.000187 ng/L (21,400x below EPA). f0=25MHz, Q=9112. Shortest stem. |
 | run-27 | 1.000 | SINGLE PADDLE (N=1): no array needed! | 4/4 | 5+97 | 5.0 | 0.000664 | Single paddle cantilever, no array. LOD=0.000664 (6000x below EPA). Paddle is sufficient alone. |
+| run-28 | 1.000 | HARDEST: Si, 1nm, single-coat, N=1 paddle | 4/4 | 5+104 | 5.0 | 0.031 | Absolute hardest config. Still 129x below EPA! Paddle topology is unbreakable. |
 
 ---
 

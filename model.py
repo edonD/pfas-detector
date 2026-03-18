@@ -17,11 +17,11 @@ import numpy as np
 
 KB = 1.381e-23
 
-# Material: SiN
-E_BEAM     = 270e9
-RHO_BEAM   = 3100.0
-ALPHA_BEAM = 2.3e-6
-KAP_BEAM   = 30.0
+# Material: Silicon (hardest test — lower E/rho than SiN)
+E_BEAM     = 170e9
+RHO_BEAM   = 2330.0
+ALPHA_BEAM = 2.6e-6
+KAP_BEAM   = 148.0
 CP_BEAM    = 700.0
 T0         = 300.0
 
@@ -35,7 +35,7 @@ K_PFAS   = 150.0
 
 # Measurement
 BW       = 1.0
-A_OSC    = 20e-9      # moderate (standard field operation)
+A_OSC    = 1e-9       # near-thermal — absolute hardest test
 
 
 def run_simulation(params):
@@ -81,8 +81,8 @@ def run_simulation(params):
     m_paddle = RHO_BEAM * wp * t * Lp
 
     # Double-sided coating on both
-    A_coat_stem   = 2 * ws * Ls   # double-sided coating
-    A_coat_paddle = 2 * wp * Lp
+    A_coat_stem   = ws * Ls       # single-sided only
+    A_coat_paddle = wp * Lp
     A_coat_total  = A_coat_stem + A_coat_paddle
 
     m_coat_stem   = RHO_COAT * A_coat_stem * h_coat
