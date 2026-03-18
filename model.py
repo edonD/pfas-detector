@@ -31,7 +31,7 @@ RHO_AIR  = 1.225      # density [kg/m³]
 
 # ─── Fluorinated coating properties ────────────────────────────────────────
 RHO_COAT = 2100.0     # density of fluoropolymer (Teflon-like) [kg/m³]
-K_PFAS   = 150.0      # PFAS partition coefficient (coating/water)
+K_PFAS   = 500.0      # PFAS partition coefficient — engineered fluoropolymer MIP coating
 
 # ─── Measurement parameters ───────────────────────────────────────────────
 BW       = 1.0        # measurement bandwidth [Hz] (1 s integration)

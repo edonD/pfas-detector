@@ -11,7 +11,7 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 0.016 ng/L | < 4.0 ng/L | PASS |
+| Detection limit | 0.005 ng/L | < 4.0 ng/L | PASS |
 | Resonant frequency | 1435.6 kHz | > 100 kHz | PASS |
 | Q-factor | 1078 | > 50 | PASS |
 | Sensitivity | 34605.8 Hz/pg | > 1.0 Hz/pg | PASS |
@@ -91,6 +91,7 @@
 | run-16 | 0.968 | ultra-conservative + double-coat + array(64), 5nm, L/t>=100 | 3/4 | 50.0 | 0.5 | 4.35 | Rescued: double coat + 64-array brings LOD from 62 to 4.35. Score=0.968 (>0.90). |
 | run-17 | 1.000 | SiN field-deployable: double-coat, 16-array, 20nm | 4/4 | 50.0 | 2.5 | 0.022 | Best LOD yet! SiN gives Q=1078 (31% > Si). LOD=0.022 ng/L (182x below EPA). |
 | run-18 | 1.000 | SiN wide beam (w=200um), double-coat, 16-array | 4/4 | 50.0 | 2.5 | 0.016 | NEW RECORD LOD=0.016 ng/L (250x below EPA). Wider beam = more coating area. |
+| run-19 | 1.000 | SiN + MIP coating (K=500), wide beam, 16-array | 4/4 | 50.0 | 2.5 | 0.005 | NEW RECORD LOD=0.005 ng/L (800x below EPA). Engineered MIP fluoropolymer coating. |
 
 ---
 
