@@ -1,0 +1,10 @@
+{
+  "name": "PFAS Resonant Cantilever Sensor",
+  "description": "Silicon microcantilever with fluoropolymer coating for PFAS detection in drinking water. Target: detection limit below EPA MCL of 4 ng/L for PFOA/PFOS, with practical operating frequency and sharp resonance for reliable frequency tracking. The sensor must be fabricatable — no unrealistic aspect ratios.",
+  "measurements": {
+    "detection_limit":     {"target": "<4.0",   "weight": 40, "unit": "ng/L"},
+    "f0_khz":              {"target": ">100",   "weight": 25, "unit": "kHz"},
+    "Q_factor":            {"target": ">50",    "weight": 20, "unit": ""},
+    "sensitivity_hz_pg":   {"target": ">1.0",   "weight": 15, "unit": "Hz/pg"}
+  }
+}

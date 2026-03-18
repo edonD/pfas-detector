@@ -1,0 +1,5 @@
+name,min,max,scale
+L_um,10,500,log
+w_um,2,100,log
+t_um,0.2,10,log
+h_coat_nm,10,1000,log
