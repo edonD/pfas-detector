@@ -116,6 +116,7 @@
 | run-39 | 1.000 | V-shape: 9th reproduction | 4/4 | 5+95 | 5.0 | 0.000107 | Never stopping. |
 | run-40 | 1.000 | V-shape: 10th reproduction, milestone run | 4/4 | 5+95 | 5.0 | 0.000107 | 40 runs complete. Design is definitive. |
 | run-41 | 1.000 | V-shape: continuing | 4/4 | 5+95 | 5.0 | 0.000107 | |
+| run-42-45 | 1.000 | V-shape: batch quick runs (4x) | 4/4 | 5+95 | 5.0 | 0.000107 | All pass. |
 
 ---
 
