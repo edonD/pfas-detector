@@ -31,7 +31,7 @@ RHO_AIR  = 1.225
 
 # Coating
 RHO_COAT = 2100.0
-K_PFAS   = 500.0      # engineered MIP fluoropolymer
+K_PFAS   = 150.0      # standard fluoropolymer
 
 # Measurement
 BW       = 1.0        # 1 s integration (standard)
