@@ -35,7 +35,7 @@ K_PFAS   = 150.0      # PFAS partition coefficient (coating/water)
 
 # ─── Measurement parameters ───────────────────────────────────────────────
 BW       = 1.0        # measurement bandwidth [Hz] (1 s integration)
-A_OSC    = 20e-9      # oscillation amplitude [m] (20 nm — moderate)
+A_OSC    = 1e-9       # oscillation amplitude [m] (1 nm — near-thermal, ultra conservative)
 
 
 def run_simulation(params):
@@ -60,7 +60,7 @@ def run_simulation(params):
         return None
     if t > L:
         return None
-    if L / t > 500 or L / t < 50:
+    if L / t > 500 or L / t < 20:
         return None
     if h_coat > t * 0.10:
         return None
