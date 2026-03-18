@@ -89,6 +89,7 @@
 | run-14 | 1.000 | fast measurement: BW=10Hz (100ms), same design | 4/4 | 50.0 | 2.5 | 0.083 | 10x faster measurement (100ms vs 1s). LOD=0.083 — still 48x below EPA. sqrt(BW) scaling confirmed. |
 | run-15 | 0.626 | FAIL: ultra-conservative single beam, 5nm, L/t>=100 | 2/4 | 50.0 | 0.5 | 62.4 | Physical limit found: single Si cantilever with 5nm amp and L/t=100 can't meet LOD. |
 | run-16 | 0.968 | ultra-conservative + double-coat + array(64), 5nm, L/t>=100 | 3/4 | 50.0 | 0.5 | 4.35 | Rescued: double coat + 64-array brings LOD from 62 to 4.35. Score=0.968 (>0.90). |
+| run-17 | 1.000 | SiN field-deployable: double-coat, 16-array, 20nm | 4/4 | 50.0 | 2.5 | 0.022 | Best LOD yet! SiN gives Q=1078 (31% > Si). LOD=0.022 ng/L (182x below EPA). |
 
 ---
 

@@ -1,6 +1,6 @@
 name,min,max,scale
-L_um,50,500,log
+L_um,50,300,log
 w_um,5,100,log
-t_um,0.1,5,log
-h_coat_nm,5,500,log
-N_array,1,64,lin
+t_um,0.5,10,log
+h_coat_nm,10,500,log
+N_array,1,16,lin
