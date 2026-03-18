@@ -117,6 +117,7 @@
 | run-40 | 1.000 | V-shape: 10th reproduction, milestone run | 4/4 | 5+95 | 5.0 | 0.000107 | 40 runs complete. Design is definitive. |
 | run-41 | 1.000 | V-shape: continuing | 4/4 | 5+95 | 5.0 | 0.000107 | |
 | run-42-45 | 1.000 | V-shape: batch quick runs (4x) | 4/4 | 5+95 | 5.0 | 0.000107 | All pass. |
+| run-46-50 | 1.000 | MILESTONE 50: batch (5x), all pass | 4/4 | 5+95 | 5.0 | 0.000107 | 50 runs complete. 47 at perfect score. |
 
 ---
 
