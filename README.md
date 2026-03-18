@@ -11,9 +11,9 @@
 | Metric | Value | Target | Status |
 |--------|-------|--------|--------|
 | Score | 1.000 | >= 0.90 | PASS |
-| Detection limit | 1.635 ng/L | < 4.0 ng/L | PASS |
+| Detection limit | 0.075 ng/L | < 4.0 ng/L | PASS |
 | Resonant frequency | 525.6 kHz | > 100 kHz | PASS |
-| Q-factor | 212 | > 50 | PASS |
+| Q-factor | 100000 | > 50 | PASS |
 | Sensitivity | 168626.8 Hz/pg | > 1.0 Hz/pg | PASS |
 
 ---
@@ -54,7 +54,8 @@
 | Material | Silicon |
 | Oscillation amplitude | 10 nm (conservative) |
 | L/t constraint | >= 50 (traditional MEMS) |
-| Topology | Si rect beam + single-coat + 8-element array (hardest config) |
+| Packaging | Vacuum (hermetic seal) |
+| Topology | Si rect beam + single-coat + 8-array + vacuum pkg |
 
 ---
 
@@ -64,7 +65,8 @@
 |-------|-------|---------|
 | L/t (aspect ratio) | 50 | Traditional MEMS cantilever |
 | f0 | 525.6 kHz | Practical readout range |
-| delta_m_min | 1.6 fg | Minimum detectable mass |
+| Q | 100,000 | Vacuum-limited (TED cap) |
+| delta_m_min | 0.075 fg | Minimum detectable mass |
 
 ---
 
@@ -80,6 +82,7 @@
 | run-6 | 1.000 | SiN beam + conservative 10nm amplitude | 4/4 | 50.0 | 2.5 | 0.318 | Switched to SiN (E=270GPa, rho=3100) and reduced A_OSC to 10nm (5x more conservative). Still passes all specs. Q=1084 (higher than Si). Robust design. |
 | run-7 | 0.946 | Si beam, 10nm, L/t>=50, no array | 3/4 | 50.0 | 1.0 | 4.624 | Hardest config: Si, 10nm, L/t=50, single cantilever. LOD just misses at 4.6 ng/L. Score still passes >=0.90. |
 | run-8 | 1.000 | Si beam, 10nm, L/t>=50, 8-element array | 4/4 | 50.0 | 1.0 | 1.635 | Added minimal 8-cantilever array. LOD drops to 1.6 ng/L. All specs pass even in hardest configuration. |
+| run-9 | 1.000 | vacuum-packaged Si, 10nm, L/t>=50, 8-array | 4/4 | 50.0 | 1.0 | 0.075 | Vacuum packaging eliminates air damping. Q=100,000 (capped). LOD=0.075 ng/L. 53x below EPA even with all conservative choices. |
 
 ---
 
