@@ -108,6 +108,7 @@
 | run-31 | 1.000 | Extreme paddle: stem 3um, f0=41MHz, K=150 | 4/4 | 3+57 | 3.0 | 0.000137 | f0=41MHz(!), S=678k Hz/pg. 3um stem pushes frequency to practical limit. 29,000x below EPA. |
 | run-32 | 1.000 | FINAL VERIFICATION: optimal paddle reproduced 3rd time | 4/4 | 5+95 | 5.0 | 0.000187 | DE converges to same global optimum for 3rd time. Design is definitive. |
 | run-33 | 1.000 | Continued loop: same optimum, 4th reproduction | 4/4 | 5+95 | 5.0 | 0.000187 | 4th identical result. Global optimum is absolutely stable. |
+| run-34 | 1.000 | V-SHAPE dual-stem paddle: 2k stiffness | 4/4 | 5+95 | 5.0 | 0.000107 | NEW: V-shape (2 stems). f0=32MHz, Q=10418. LOD=0.000107 (37,000x below EPA). sqrt(2) stiffer. |
 
 ---
 

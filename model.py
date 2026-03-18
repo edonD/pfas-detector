@@ -1,23 +1,23 @@
 """
 model.py — MEMS Cantilever PFAS Sensor Model
 
-Topology: Paddle (T-shape) silicon nitride cantilever with double-sided
-          fluoropolymer coating and array averaging.
-          Narrow stem for high f0, wide paddle for maximum coating area.
+Topology: V-shaped (dual-stem) silicon nitride cantilever with sensing paddle.
+          Two narrow stems provide higher torsional stiffness and better mode
+          isolation than single-stem paddle. Double-sided fluoropolymer coating.
 
 Physics:
-  Euler-Bernoulli beam theory (stem determines f0 and k).
+  Euler-Bernoulli beam theory (parallel stems, combined spring constant).
   Paddle mass at tip (lumped mass model).
   Thermomechanical (Brownian) noise floor.
   Sader/viscous + thermoelastic damping for Q in air.
-  Double-sided coating on both stem and paddle.
+  Double-sided coating on stems and paddle.
 """
 
 import numpy as np
 
 KB = 1.381e-23
 
-# Material: SiN (optimal)
+# Material: SiN
 E_BEAM     = 270e9
 RHO_BEAM   = 3100.0
 ALPHA_BEAM = 2.3e-6
@@ -31,21 +31,22 @@ RHO_AIR  = 1.225
 
 # Coating
 RHO_COAT = 2100.0
-K_PFAS   = 150.0      # standard fluoropolymer
+K_PFAS   = 150.0
 
 # Measurement
-BW       = 1.0        # 1 s integration (standard)
-A_OSC    = 20e-9      # moderate (standard field operation)
+BW       = 1.0
+A_OSC    = 20e-9
 
 
 def run_simulation(params):
     """
-    Paddle (T-shape) SiN cantilever: narrow stem + wide paddle.
+    V-shaped (dual-stem) SiN cantilever with paddle.
+    Two identical stems in parallel + shared sensing paddle.
 
     params keys:
       Ls_um     : stem length [um]
-      ws_um     : stem width [um]
-      t_um      : thickness (uniform) [um]
+      ws_um     : single stem width [um]
+      t_um      : thickness [um]
       Lp_um     : paddle length [um]
       wp_um     : paddle width [um]
       h_coat_nm : coating thickness [nm]
@@ -70,26 +71,27 @@ def run_simulation(params):
         return None
     if h_coat > t * 0.10:
         return None
-    if wp < ws:  # paddle must be wider than stem
+    if wp < 2 * ws:  # paddle must be wider than combined stems
         return None
 
-    # Stem mechanics (determines spring constant)
-    k = E_BEAM * ws * t**3 / (4 * Ls**3)
+    # Two parallel stems: combined spring constant = 2 * k_single
+    k_single = E_BEAM * ws * t**3 / (4 * Ls**3)
+    k = 2 * k_single
 
-    # Masses
-    m_stem   = RHO_BEAM * ws * t * Ls
+    # Masses: two stems
+    m_stems  = 2 * RHO_BEAM * ws * t * Ls
     m_paddle = RHO_BEAM * wp * t * Lp
 
-    # Double-sided coating on both
-    A_coat_stem   = 2 * ws * Ls   # double-sided coating
+    # Double-sided coating on both stems and paddle
+    A_coat_stems  = 2 * (2 * ws * Ls)   # 2 stems, both sides each
     A_coat_paddle = 2 * wp * Lp
-    A_coat_total  = A_coat_stem + A_coat_paddle
+    A_coat_total  = A_coat_stems + A_coat_paddle
 
-    m_coat_stem   = RHO_COAT * A_coat_stem * h_coat
+    m_coat_stems  = RHO_COAT * A_coat_stems * h_coat
     m_coat_paddle = RHO_COAT * A_coat_paddle * h_coat
 
-    # Effective mass: stem contributes 0.2357x, paddle at tip contributes fully
-    m_eff = 0.2357 * (m_stem + m_coat_stem) + m_paddle + m_coat_paddle
+    # Effective mass: stems contribute 0.2357x, paddle at tip fully
+    m_eff = 0.2357 * (m_stems + m_coat_stems) + m_paddle + m_coat_paddle
 
     if m_eff <= 0:
         return None
@@ -101,7 +103,6 @@ def run_simulation(params):
     S_Hz_kg = f0 / (2 * m_eff)
     sensitivity_hz_pg = S_Hz_kg * 1e-12
 
-    # Q-factor (use stem thickness for damping)
     omega0  = 2 * np.pi * f0
     tau_TED = RHO_BEAM * CP_BEAM * t**2 / (np.pi**2 * KAP_BEAM)
     xi      = omega0 * tau_TED
@@ -134,5 +135,5 @@ def run_simulation(params):
         '_Q_air':              Q_air,
         '_Q_TED':              Q_TED,
         '_delta_m_min_fg':     delta_m_min * 1e15,
-        '_m_coat_pg':          (m_coat_stem + m_coat_paddle) * 1e12,
+        '_m_coat_pg':          (m_coat_stems + m_coat_paddle) * 1e12,
     }
