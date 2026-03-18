@@ -35,7 +35,7 @@ K_PFAS   = 150.0
 
 # Measurement
 BW       = 1.0
-A_OSC    = 20e-9
+A_OSC    = 5e-9       # ultra-conservative
 
 
 def run_simulation(params):
@@ -81,8 +81,8 @@ def run_simulation(params):
     m_paddle = RHO_BEAM * wp * t * Lp
 
     # Double-sided coating on both
-    A_coat_stem   = 2 * ws * Ls
-    A_coat_paddle = 2 * wp * Lp
+    A_coat_stem   = ws * Ls      # single-sided only
+    A_coat_paddle = wp * Lp
     A_coat_total  = A_coat_stem + A_coat_paddle
 
     m_coat_stem   = RHO_COAT * A_coat_stem * h_coat

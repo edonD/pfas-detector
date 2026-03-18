@@ -99,6 +99,7 @@
 | run-22 | 1.000 | PADDLE (T-shape) SiN: stem 20um + paddle 80x30um | 4/4 | 20+80 | 5.0 | 0.005 | New topology! Short stiff stem + wide paddle. f0=4284kHz(!), Q=3486. LOD=0.005 ng/L (800x below EPA) with standard K=150. |
 | run-23 | 1.000 | PADDLE optimized: stem 10um + paddle 90x50um | 4/4 | 10+90 | 5.0 | 0.001 | ABSOLUTE RECORD! LOD=0.001 ng/L (4000x below EPA). f0=9036kHz, Q=5267. Shorter stem = higher f0. |
 | run-24 | 1.000 | PADDLE reproduced: same design, same result | 4/4 | 10+90 | 5.0 | 0.001 | DE converges to exact same optimum. Design is globally optimal and stable. |
+| run-25 | 1.000 | PADDLE stress: 5nm amp + single-sided coat | 4/4 | 10+94 | 5.0 | 0.010 | 5nm amp + single coat: LOD=0.010 (400x below EPA). Paddle topology is incredibly robust. |
 
 ---
 
